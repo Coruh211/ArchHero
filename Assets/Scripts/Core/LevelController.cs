@@ -18,6 +18,7 @@ namespace Core
         public float ActualTime { get; private set; }
 
         [SerializeField] private float startTimer;
+        [SerializeField] private float coinsForKill;
         [Header("Player")]
         [SerializeField] private Transform playerSpawnPoint;
         [SerializeField] private GameObject playerPrefab;
@@ -102,7 +103,7 @@ namespace Core
         public void RemoveBot(BotView botView)
         {
             _botViews.Remove(botView);
-
+            CoinsManager.Instance.AddCoins(coinsForKill);
             CheckLevelEnd();
         }
 
